@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include "functions.h"
 
 using namespace std;
 
@@ -13,18 +14,33 @@ int main()
 
     int userChoice, computerChoice = rand() % 3;
 
-    cout << "Enter your move: \n1: ROCK\n2: PAPER\n3: SCISSSORS" << endl;
+    cout << "\nEnter your move: \n1: ROCK\n2: PAPER\n3: SCISSSORS" << endl;
     cin >> userChoice;
 
     while (userChoice != 1 && userChoice != 2 && userChoice != 3)
     {
-        cout << "Invalid move. Please pick a valid number: \n1: ROCK\n2: PAPER\n3: SCISSSORS" << endl;
+        cout << "\nInvalid move. Please pick a valid number: \n1: ROCK\n2: PAPER\n3: SCISSSORS" << endl;
         cin >> userChoice;
     }
 
+    userChoice -= 1;
+
     cout << computerChoice << endl;
-    cout << "computer: " << moves[computerChoice] << endl;
-    cout << "user: " << moves[userChoice - 1] << endl;
+    cout << "\nComputer plays: " << moves[computerChoice] << endl;
+    cout << "\nUser plays: " << moves[userChoice] << endl;
+
+    if (userChoice == computerChoice)
+    {
+        cout << "\nIt's a tie!" << endl;
+    }
+    else if (beats(userChoice, computerChoice))
+    {
+        cout << "\nUser wins!" << endl;
+    }
+    else
+    {
+        cout << "\nComputer wins!" << endl;
+    }
 
     return 0;
 }

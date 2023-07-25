@@ -4,23 +4,8 @@
 
 using namespace std;
 
-int readUserChoice()
+bool beats(int a, int b)
 {
-    int userChoice;
-    cout << "Enter your move: \n1: ROCK\n2: PAPER\n3: SCISSSORS" << endl;
-    cin >> userChoice;
-
-    return userChoice;
+    // compares the win conditions for the game. a will represent the player's move (0 for rock, 1 for paper, 2 for scissors) and b will represent the computer's move (0 for rock, 1 for paper and 2 for scissors). this will return true if the player beats the computer, and false if the computer beats the player.
+    return (a == 0 && b == 2) || (a == 1 && b == 0) || (a == 2 && b == 1);
 }
-
-// random_device rd;
-// default_random_engine generator(rd());
-
-// define the range for the the random (0-2)
-// int minNumber = 0, maxNumber = 2;
-// uniform_int_distribution<int> distribution(minNumber, maxNumber);
-
-// generates the random number and sets it as the computer's choice
-/// int computerChoice = distribution(generator);
-
-// void validateUserChoice(int userChoice){}
